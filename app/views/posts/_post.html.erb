@@ -1,4 +1,8 @@
-<%= div_for post  do %>
+<%= div_for post, :class => 'panel panel-default'  do %>
+    <%= div_for post, :class => 'panel-heading'  do %>
 	<h2><%= link_to_unless_current post.title, post %> </h2>
+     <% end %>
+    <%= div_for post, :class => 'panel-body'  do %>
 <%= simple_format post.body %>
+    <% end %>
 <% end %>

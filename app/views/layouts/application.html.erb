@@ -10,7 +10,20 @@
 <body>
 <div class='container'>
   <div class="row">
-  <div class="span9"><%= yield %></div>
+    <% if user_signed_in? %>
+        <div class="pull-right">
+
+          <strong><%= current_user.email %></strong><br />
+          <%= link_to  "Sign out", destroy_user_session_path,:method => :delete, :class => "btn btn-primary pull-right" %>
+        </div>
+    <%else%>
+        <%= link_to "Sign in" ,new_user_session_path, :class=>"btn btn-success pull-right" %>
+    <%end%>
+    </div>
+  <div class="row">
+    <div class="span4 offset6">
+    <%= yield %>
+  </div>
   </div>
 </div>
 

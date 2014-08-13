@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
 
-  before_filter :authenticate, :exept => [:index, :show]
+
 
   # GET /posts
   # GET /posts.json
@@ -86,12 +86,6 @@ class PostsController < ApplicationController
     end
   end
 
-private 
-def authenticate
-      authenticate_or_request_with_http_basic do |name, password|
-        name == "admin" && password == "secret"
-  end
-end
 
   private
   def post_params

@@ -1,7 +1,7 @@
 <%= render :partial => @post %>
 <p>
-	<%= link_to 'Edit', edit_post_path(@post) %>
-	<%= link_to 'Delete', :method => :delete, :confirm => 'Are you sure?' %>
+	<%= link_to 'Edit', edit_post_path(@post) %> |
+	<%= link_to 'Delete',@post, :confirm => "Are you sure?", :method => :delete %> |
 	<%= link_to 'See all posts', posts_path %>
 </p>	
 
@@ -17,6 +17,6 @@
 		<%=  f.label  :body, 'New comment' %> <br />
 		<%= f.text_area  :body %>
 	</p>
-	<p><%= f.submit 'Add comment' %></p>
+	<p><%= f.submit 'Add comment', :class=>"btn" %></p>
 <% end %>
 
