@@ -45,7 +45,7 @@ class PostsController < ApplicationController
   # POST /posts
   # POST /posts.json
   def create
-    @post = Post.new(params[:post])
+    @post = Post.new(post_params)
 
     respond_to do |format|
       if @post.save
@@ -64,7 +64,7 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
 
     respond_to do |format|
-      if @post.update_attributes(params[:post])
+      if @post.update_attributes(post_params)
         format.html { redirect_to @post, notice: 'Post was successfully updated.' }
         format.json { head :no_content }
       else
@@ -92,6 +92,11 @@ def authenticate
         name == "admin" && password == "secret"
   end
 end
+
+  private
+  def post_params
+    params.require(:post).permit(:title, :body)
+  end
 
 
 end
