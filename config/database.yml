@@ -6,8 +6,13 @@
 development:
   adapter: sqlite3
   database: db/development.sqlite3
+  #adapter: postgresql
+  #database: blog_development
+  encoding: unicode
   pool: 5
   timeout: 5000
+  #username: kolenko_s
+  #password: 35840098
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
@@ -15,11 +20,21 @@ development:
 test:
   adapter: sqlite3
   database: db/test.sqlite3
+    #adapter: postgresql
+    #database: blog_test
+  encoding: unicode
   pool: 5
   timeout: 5000
+   # username: kolenko_s
+   # password: 35840098
 
 production:
   adapter: sqlite3
   database: db/production.sqlite3
+  #adapter: postgresql
+  #database: blog_production
+  encoding: unicode
   pool: 5
   timeout: 5000
+  #username: kolenko_s
+  #password: 35840098
