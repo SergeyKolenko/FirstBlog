@@ -30,10 +30,29 @@ gem 'bootstrap-sass'
 
 gem 'jquery-rails'
 
-gem 'minitest'
 
 gem 'devise'
 
+group :development, :test do
+  gem 'rspec-rails'
+end
+
+
+group :test do
+  gem 'rspec'
+  gem 'factory_girl_rails'
+  #gem 'webrat'
+  #gem 'cucumber'
+  #gem 'cucumber-rails'
+  gem 'capybara'
+  gem 'launchy'
+  gem "guard-rspec"
+  gem 'database_cleaner'
+  gem 'shoulda-matchers'
+  gem 'selenium-webdriver'
+  gem "Selenium"
+  gem "selenium-client"
+end
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
