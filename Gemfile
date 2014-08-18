@@ -1,37 +1,18 @@
 source 'https://rubygems.org'
 
-gem 'rails', '4.1.2'
+gem 'rails', ">=4.1.2"
 
-# Bundle edge Rails instead:
-# gem 'rails', :git => 'git://github.com/rails/rails.git'
-
-#gem 'sqlite3'
 gem 'pg'
-#gem 'taps'
-
-
 gem "therubyracer"
 gem "less-rails"
 gem 'twitter-bootstrap-rails'
 gem 'bootstrap-sass'
-
-
-# Gems used only for assets and not required
-# in production environments by default.
-#group :assets do
-  gem 'sass-rails'
-  gem 'coffee-rails'
-
-  # See https://github.com/sstephenson/execjs#readme for more supported runtimes
-  # gem 'therubyracer', :platforms => :ruby
-
-  gem 'uglifier'
-#end
-
+gem 'sass-rails'
+gem 'coffee-rails'
+gem 'uglifier'
 gem 'jquery-rails'
-
-
 gem 'devise'
+gem 'ckeditor_rails'
 
 group :development, :test do
   gem 'rspec-rails'
@@ -41,9 +22,6 @@ end
 group :test do
   gem 'rspec'
   gem 'factory_girl_rails'
-  #gem 'webrat'
-  #gem 'cucumber'
-  #gem 'cucumber-rails'
   gem 'capybara'
   gem 'launchy'
   gem "guard-rspec"

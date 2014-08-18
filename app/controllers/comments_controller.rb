@@ -2,10 +2,14 @@ class CommentsController < ApplicationController
   def create
     @post = Post.find(params[:post_id ])
     @comment = @post.comments.create!(comment_params)
-    respond_to do |format|
-      format.html {redirect_to @post}
-      format.js {render :template => 'comments/create.js'}
-    end
+    # puts '----' * 10
+    # puts params.inspect
+    # puts '----' * 10
+    # redirect_to post_comment_path(@post.id, @comment.id)
+     respond_to do |format|
+       format.html {redirect_to @post}
+       format.js
+     end
   end
 
 
