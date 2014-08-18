@@ -1,6 +1,10 @@
-	<%= div_for comment do %>
+	<%= content_tag_for(:li, comment, :class => 'list-group-item') do %>
 	<p>
-		<strong>Posted <%= time_ago_in_words(comment.created_at) %> ago</strong><br/>
+      <em>
+		 <strong>Posted <%= time_ago_in_words(comment.created_at) %> ago by <%= User.find(comment.user_id).email%></strong>
+      </em>
+      <br/>
 		<%= comment.body.html_safe %>
+
 	</p>
 	<% end %>

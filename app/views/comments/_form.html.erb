@@ -11,9 +11,13 @@
     </div>
   <% end %>
 
+
+    <div class="field">
+      <%= f.hidden_field :user_id, :value => current_user.id  %>
+    </div>
   <div class="field">
     <%= f.label :post_id %><br />
-    <%= f.number_field :post_id, :class => "form-control" %>
+    <%= f.number_field :post_id %>
   </div>
   <div class="field">
     <%= f.label :body %><br />

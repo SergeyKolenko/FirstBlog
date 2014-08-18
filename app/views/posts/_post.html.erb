@@ -1,6 +1,7 @@
 <%= div_for post, :class => 'panel panel-default'  do %>
     <%= div_for post, :class => 'panel-heading'  do %>
-	<h2><%= link_to_unless_current post.title, post %> </h2>
+	<h2><%= link_to_unless_current post.title, post %></h2>
+    <small>Created by <%= User.find(post.user_id).email  %> at <%= time_ago_in_words(post.created_at) %> ago </small>
      <% end %>
     <%= div_for post, :class => 'panel-body'  do %>
 <%= post.body.html_safe %>

@@ -2,5 +2,5 @@
 //=require JQueryColor
 comment = '<%= escape_javascript render :partial => @comment %>';
 $("#comments").append(comment);
-$("#comments div:last-child").animate({backgroundColor: 'white'}, 1000);
+$("#comments div:last-child").animate( {backgroundColor: 'white'}, 1000);
 $('#cke_comment_body .cke_wysiwyg_frame').contents().find('body').text('');

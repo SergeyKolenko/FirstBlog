@@ -1,20 +1,27 @@
 <%= render :partial => @post %>
+<% if user_signed_in? && current_user.id == @post.user_id %>
 <p>
 	<%= link_to 'Edit', edit_post_path(@post) %> |
 	<%= link_to 'Delete',@post, :confirm => "Are you sure?", :method => :delete %> |
 	<%= link_to 'See all posts', posts_path %>
 </p>	
-
+<% end %>
 <h2>Comments</h2>
-<div id='comments'>
+<ul id='comments' class="list-group">
 	<%= render :partial => @post.comments %>
-</div>
-
+</ul>
+<% if user_signed_in? %>
 <%=  form_for  [@post, Comment.new], :remote => true do |f| %>
 	    <p>
+         <%= f.hidden_field :user_id, :value => current_user.id %>
 		<%=  f.label  :body, 'New comment' %> <br />
 		<%= f.text_area  :body , :class => 'form-control ckeditor'%>
 	</p>
 	<p><%= f.submit 'Add comment', :class=>"btn" %></p>
 <% end %>
-
+<% else %>
+    <p> <h3>
+  <%= link_to "Sign in", new_user_session_path %> or <%= link_to "Sign up", new_user_registration_path %>
+  to add comment</h3>
+    </p>
+<% end %>
