@@ -14,6 +14,7 @@ gem 'jquery-rails'
 gem 'devise'
 gem 'ckeditor_rails'
 gem 'likeable'
+gem 'activeadmin', github: 'gregbell/active_admin'
 
 
 group :development, :test do
