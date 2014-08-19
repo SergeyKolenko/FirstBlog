@@ -5,6 +5,9 @@ root :to =>'posts#index'
     resources :comments
   end
 
+  delete  'likes/:resource_name/:resource_id' => "likes#destroy", :as => 'unlike'
+  post    'likes/:resource_name/:resource_id' => "likes#create", :as => 'like'
+
 
 
 

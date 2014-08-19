@@ -1,4 +1,18 @@
 	<%= content_tag_for(:li, comment, :class => 'list-group-item') do %>
+        <div class="pull-right">
+          <% if user_signed_in? %>
+              <% if  current_user.likes?(comment) %>
+                  <%= unlike_link_for comment %>
+              <% else %>
+                  <%= like_link_for comment %>
+              <%end%>
+          <% else %>
+              <%= link_to new_user_session_path do  %>
+                  <%=  image_tag "like-64x64.png", :size => "20", :alt => "Like", :title => "Like" %>
+              <% end %>
+          <% end %>
+          <span class="badge"><%= comment.like_count %></span>
+        </div>
 	<p>
       <em>
 		 <strong>Posted <%= time_ago_in_words(comment.created_at) %> ago by <%= User.find(comment.user_id).email%></strong>

@@ -1,8 +1,22 @@
 <%= div_for post, :class => 'panel panel-default'  do %>
     <%= div_for post, :class => 'panel-heading'  do %>
+        <div class="pull-right">
+        <% if user_signed_in? %>
+        <% if  current_user.likes?(post) %>
+            <%= unlike_link_for post %>
+        <% else %>
+             <%= like_link_for post %>
+        <%end%>
+        <% else %>
+            <%= link_to new_user_session_path do  %>
+              <%=  image_tag "like-64x64.png", :size => "20", :alt => "Like", :title => "Like" %>
+        <% end %>
+        <% end %>
+        <span class="badge"><%= post.like_count %></span>
+        </div>
 	<h2><%= link_to_unless_current post.title, post %></h2>
     <small>Created by <%= User.find(post.user_id).email  %> at <%= time_ago_in_words(post.created_at) %> ago </small>
-     <% end %>
+<% end %>
     <%= div_for post, :class => 'panel-body'  do %>
 <%= post.body.html_safe %>
     <% end %>

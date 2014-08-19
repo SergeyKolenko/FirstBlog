@@ -13,6 +13,8 @@ gem 'uglifier'
 gem 'jquery-rails'
 gem 'devise'
 gem 'ckeditor_rails'
+gem 'likeable'
+
 
 group :development, :test do
   gem 'rspec-rails'
