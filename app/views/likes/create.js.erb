@@ -1,0 +1,3 @@
+var like_div =  $('#<%= params[:resource_name].downcase%>_<%= params[:resource_id] %>  .pull-right');
+$(like_div).find('span').text('<%= @target.like_count %>');
+$(like_div).find('a').replaceWith('<%= unlike_link_for(@target) %>');
