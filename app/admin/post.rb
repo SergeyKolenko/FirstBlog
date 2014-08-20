@@ -1,18 +1,29 @@
 ActiveAdmin.register Post do
 
 
-  # See permitted parameters documentation:
-  # https://github.com/gregbell/active_admin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
-  #
-  # permit_params :list, :of, :attributes, :on, :model
-  #
-  # or
-  #
-  # permit_params do
-  #  permitted = [:permitted, :attributes]
-  #  permitted << :other if resource.something?
-  #  permitted
-  # end
+
+show do
+  h2  post.title
+  div do
+   strong 'Author:'
+   strong User.find(post.user_id).email
+  end
+  h4 'Post Body: '
+  div do
+    post.body.html_safe
+  end
+  
+  h3 'Comments:'
+  post.comments.each do |comment|
+      div do
+        strong User.find(comment.user_id).email
+      end
+      div do
+        comment.body.html_safe
+      end
+
+  end
+end
 
 
 end
